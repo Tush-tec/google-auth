@@ -18,9 +18,9 @@ app.set("view engine", "ejs");
 passport.use(
   new GoogleStrategy(
     {
-      clientID: rocess.en,
-      clientSecret: "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",
-      callbackURL: "http://localhost:8080/auth/google/handle",
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      callbackURL: process.env.CALLBACK_URI,
     },  
     async (accessToken, refreshToken, profile, done) => {
       return done(null, profile);
